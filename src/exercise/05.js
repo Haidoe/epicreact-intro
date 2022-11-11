@@ -15,11 +15,12 @@ import '../box-styles.css'
 // 💰 Here are available style attributes: backgroundColor, fontStyle
 
 const Box = props => {
-  const {children, style, className, ...others} = props
+  const {children, className, style, size, ...others} = props
+  const subClass = size ? `box--${size}` : ''
 
   return (
     <div
-      className={`box ${className}`}
+      className={`box ${subClass} ${className}`}
       style={{fontStyle: 'italic', ...style}}
       {...others}
     >
@@ -31,15 +32,15 @@ const Box = props => {
 function App() {
   return (
     <div>
-      <Box className="box--small" style={{backgroundColor: 'lightblue'}}>
+      <Box size="small" style={{backgroundColor: 'lightblue'}}>
         small lightblue box
       </Box>
 
-      <Box className="box--medium" style={{backgroundColor: 'pink'}}>
+      <Box size="medium" style={{backgroundColor: 'pink'}}>
         medium pink box
       </Box>
 
-      <Box className="box--large" style={{backgroundColor: 'orange'}}>
+      <Box size="large" style={{backgroundColor: 'orange'}}>
         large orange box
       </Box>
     </div>
